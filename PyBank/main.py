@@ -63,7 +63,7 @@ summary_df = pd.DataFrame({ "Total Months": [rowcount],
 print(summary_df)
 
 summary_df.to_csv("outputPracticelist.csv", index=False)
-print(summary_df,file=open("something.txt","w"))
+#print(summary_df,file=open("something.txt","w"))
 
 
 

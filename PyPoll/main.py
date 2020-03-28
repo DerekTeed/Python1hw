@@ -38,18 +38,17 @@ calc = calc["Voter ID"].astype(float).map("{:.3f}%".format).sort_values(ascendin
 
 #print(calc)
 
-#dont show
-# summary_df = pd.DataFrame({
-#                          "Candidate Votes": newList,
-#                              "Percentage of Votes ": calc
-                             
-                            
-#                             })
-# print(summary_df)
+#Could Not Get the DataFrame to put all values out
+summary_df = pd.DataFrame({
+"Candidate Votes": newList,
+"Percentage of Votes ": calc,
+"Total Voter Count": sum3 
+                            })
+print(summary_df)
 # summary_df1 = pd.DataFrame({ "Total Voter Count": [sum3]
                          
 #                             })
-#print(summary_df1)
+# print(summary_df1)
 
 
 
