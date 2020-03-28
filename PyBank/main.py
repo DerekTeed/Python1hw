@@ -6,51 +6,26 @@ import numpy as np
 # Module for reading CSV files
 import csv
 
-
-#months = input("How many months are in the dataset? Weo?")
 df = pd.read_csv("excelBank.csv")
 
 print(df)
 something1 = df.sum(axis = 1)
-print("diff here ")
-# df['Profit/Losses'] = df.index.to_series().diff()
-# gIncrease = df['Profit/Losses'] 
 
-
-
-#This is an integer and can be maniupated, done!
 print(df['Profit/Losses'])
 profitChange = df['Profit/Losses']
 profitChange1 = profitChange.diff().values
 print("new Hope")
-dates = df['date']
+
 gtIncrease = max(profitChange1[1:])
+gtDecrease = min(profitChange1[1:])
 
-
-
-#print(final)
 print(max(profitChange1))
 newhope1 = max(profitChange1)
 print(type(newhope1))
-#print(something3)
+
 totalProfit = sum(something1)
 csvpath = os.path.join('excelBank.csv')
-
-#print(df.head())
-#print(df.dtypes)
-#print("columns here")
-#print(
-#print(df.columns)
-#df.columns['Profit/Losses'] = df.Profit/Losses.astype(float)
-# with open(csvpath, 'r') as csvfile:
-#     csv_reader = csv.reader(csvfile)
-#     for line in csv_reader:
-        #print("printing line 1")
-        #change = line[1]
-        #print(type(change))
-       # something3 = change.astype(float)
-        #print(type(something3))
-
+    
 
 with open(csvpath, newline='') as csvfile:
 
@@ -71,9 +46,47 @@ with open(csvpath, newline='') as csvfile:
     avgProfit = round(totalProfit/rowcount, 2)
     print(f"Average Profits: ${avgProfit}")
     print(f"Greatest Increase in Profits: ${gtIncrease}")
+    print(f"Greatest Decrease in Profits: ${gtDecrease}")
 
-    
+# with open(csvpath, 'w') as wf:
+#     for line in wf:
+#         wf.write(line)
+#         print("printing line 1")
 
+
+
+summary_df = pd.DataFrame({ "Total Months": [rowcount],
+                            "Total Profits": [totalProfit],
+                              "Average profit": avgProfit,
+                              "Greatest Increase": gtIncrease,
+                              "Greatest Decrease": gtDecrease})
+print(summary_df)
+
+summary_df.to_csv("outputPracticelist.csv", index=False)
+print(summary_df,file=open("something.txt","w"))
+
+
+
+
+# Remove unecessary columns from the DataFrame and save the new DataFrame
+# Only keep: "isbn", "original_publication_year", "original_title", "authors",
+# "ratings_1", "ratings_2", "ratings_3", "ratings_4", "ratings_5"
+# reduced_df = books_df[["isbn", "original_publication_year", "original_title", "authors",
+#                        "ratings_1", "ratings_2", "ratings_3", "ratings_4", "ratings_5"]]
+# reduced_df.head()            
+# #Need to create a new columns  
+# renamed_df = reduced_df.rename(columns={"isbn": "ISBN",
+#                                         "original_title": "Original Title",
+#                                         "original_publication_year": "Publication Year",
+#                                         "authors": "Authors",
+#                                         "ratings_1": "One Star Reviews",
+#                                         "ratings_2": "Two Star Reviews",
+#                                         "ratings_3": "Three Star Reviews",
+#                                         "ratings_4": "Four Star Reviews",
+#                                         "ratings_5": "Five Star Reviews", })
+#  # Push the remade DataFrame to a new CSV file
+# renamed_df.to_csv("Output/books_clean.csv",
+#                   encoding="utf-8", index=False, header=True)
 #     wins = int(csvreader[1])
 #     # losses = int(csvreader[2])
 #     # draws = int(csvreader[3])

@@ -1,0 +1,2 @@
+   Total Months  Total Profits  Average profit  Greatest Increase  Greatest Decrease
+0            86       38382578       446309.05          1926159.0         -2196167.0
