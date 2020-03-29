@@ -11,11 +11,6 @@ sumVoterId = 0
 df = pd.read_csv("PyPoll.csv")
 #print(df)
 
-# listOfCandidates = df["Candidate"].unique()
-# listOfCandidates
-
-
-
 candidate_group = df.groupby(["Candidate"])
 candidate_group = candidate_group.count()
 
