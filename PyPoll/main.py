@@ -44,12 +44,7 @@ summary_df = pd.DataFrame({
 "Percentage of Votes ": calc,
 "Total Voter Count": sum3 
                             })
-print(summary_df)
-# summary_df1 = pd.DataFrame({ "Total Voter Count": [sum3]
-                         
-#                             })
-# print(summary_df1)
-
+#print(summary_df)
 
 
 print(f'Total Number of Votes: {sum3}')
